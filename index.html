@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="ca">
 <head>
-<meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bufet Dou Assessors · Des de 1985</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -163,15 +163,15 @@ details p{opacity:.85;padding:0 60px 26px 0;max-width:60ch}
 @media (max-width:800px){.linea{grid-template-columns:1fr;gap:28px;padding-left:36px}.linea::before{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}.linea li{padding:0}.linea li::before{left:-36px}}
 
 /* Historia */
-.historia .g{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}
-.historia .foto{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:linear-gradient(160deg,var(--claro),var(--primario))}
+.historia .g{display:grid;grid-template-columns:minmax(0,.8fr) 1fr;gap:80px;align-items:center}
+.historia .foto{position:relative;aspect-ratio:1;max-height:500px;border-radius:var(--r);overflow:hidden;background:linear-gradient(160deg,var(--claro),var(--primario))}
 .historia .ano{font:400 clamp(5rem,12vw,9rem)/.9 var(--serif);color:var(--primario);letter-spacing:-.03em}
 .historia h2{margin-top:12px}
 .historia p{color:var(--gris);margin-top:20px;max-width:52ch}
 .historia ul{list-style:none;margin:28px 0 0;padding:0}
 .historia li{padding:14px 0 14px 34px;border-top:1px solid var(--linea);position:relative}
 .historia li::before{content:"";position:absolute;left:0;top:50%;width:16px;height:16px;transform:translateY(-50%);border-radius:50%;background:var(--claro);box-shadow:inset 0 0 0 5px var(--primario)}
-@media (max-width:900px){.historia .g{grid-template-columns:1fr;gap:40px}.historia .foto{aspect-ratio:4/3}}
+@media (max-width:900px){.historia .g{grid-template-columns:1fr;gap:40px}.historia .foto{aspect-ratio:4/3;max-height:none}}
 
 /* Opiniones */
 .opin{background:var(--claro)}
@@ -360,7 +360,7 @@ function render(){
   <main>
 ${F?secFoco()+secCal()+secPerf()+secAreas()+secBanda():secPerf()+secAreas()+secBanda()+secCal()}
 
-  <section class="s historia" id="qui-som" style="padding-top:0"><div class="g">
+  <section class="s historia" id="qui-som"><div class="g">
     <div class="foto">${img(md.historia,'')}</div>
     <div>
       <div class="ano">${C.desde}</div>
