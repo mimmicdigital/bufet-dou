@@ -64,27 +64,30 @@ nav.menu{display:flex;gap:20px;margin-left:auto;font-size:.95rem;font-weight:500
 nav.menu a{white-space:nowrap;text-decoration:none;opacity:.9;text-underline-offset:8px;text-decoration-thickness:2px}
 nav.menu a:hover{opacity:1;text-decoration:underline}
 nav.menu a[aria-current="true"]{opacity:1;text-decoration:underline;text-decoration-color:var(--acento)}
-.util{display:flex;align-items:center;gap:12px}
+.util{display:flex;align-items:center;gap:10px}
 .idioma{display:flex;border:1px solid rgba(255,255,255,.4);border-radius:999px;overflow:hidden}
 .idioma button{font:600 .8rem var(--titulos);background:none;border:0;color:#fff;min-width:44px;min-height:44px;padding:0 10px;cursor:pointer}
 .idioma button[aria-pressed="true"]{background:#fff;color:#1E4D40}
-.util .tel{font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:11px 16px;white-space:nowrap}
-@media (max-width:1240px){
+.util .tel{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center}
+.util .tel svg{width:18px;height:18px}
+/* Acceso de clientes: botón blanco, distinto del menú y de la cita (ámbar) */
+.cli{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:#fff;color:#1E4D40;font-weight:600;font-size:.95rem;text-decoration:none;white-space:nowrap;margin-left:6px}
+.cli svg{width:17px;height:17px;flex:none}
+.cli:hover{background:#DCE8E0}
+.cli .c{display:none}
+nav.menu .idioma{display:none}
+@media (max-width:1060px){
   .burger{display:block}.util{margin-left:auto}
   nav.menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;padding:8px 24px 20px;background:#0F1F1A}
   nav.menu a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.1rem}
   header.open{background:#0F1F1A}
   header.open nav.menu{display:flex;max-height:calc(100dvh - 84px - var(--top,0px));overflow-y:auto;overscroll-behavior:contain}
 }
-.util .cli{font-size:.9rem;font-weight:500;opacity:.9;white-space:nowrap;padding:12px 0;text-decoration:none}
-.util .cli:hover{text-decoration:underline;text-underline-offset:6px}
-nav.menu .cli-m,nav.menu .idioma{display:none}
-@media (max-width:1240px){nav.menu .cli-m{display:block}.util .cli{display:none}}
-@media (min-width:1241px) and (max-width:1500px){.util .tel{font-size:0;padding:11px 13px}.util .tel::before{content:"";display:block;width:18px;height:18px;background:currentColor;-webkit-mask:var(--ico-tel) center/contain no-repeat;mask:var(--ico-tel) center/contain no-repeat}}
 nav.menu .tel-m{display:none}
-@media (max-width:560px){nav.menu .tel-m{display:block}}
-@media (max-width:560px){.util .tel{display:none}header .g{gap:12px}}
-@media (max-width:440px){.util .idioma{display:none}nav.menu .idioma{display:flex;align-self:flex-start;margin-top:16px}header .g{padding-inline:16px}}
+@media (max-width:560px){nav.menu .tel-m{display:block}.util .tel{display:none}header .g{gap:10px}}
+@media (max-width:440px){.util .idioma{display:none}nav.menu .idioma{display:flex;align-self:flex-start;margin-top:16px}header .g{padding-inline:16px}.cli{padding:0 14px;margin-left:0}.cli .l{display:none}.cli .c{display:inline}}
+@media (max-width:400px){.logo svg{display:none}}
+@media (max-width:340px){.cli .c{display:none}.cli{padding:0;width:44px;justify-content:center}}
 
 /* Hero */
 .hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--primario)}
@@ -332,7 +335,7 @@ const UI = {
       formH:"Deixi'ns la seva consulta",lgH:"Textos legals",pausa:"Aturar el vídeo",eTel:"El telèfon sembla incomplet.",irP:"Demanar cita com a",fr2:["Un interlocutor","fix per a cada client"],modsH:"Models d'Hisenda",eMail2:"Revisi el correu: sembla incomplet.",fr0:"Més de 40",fr1:"a prop de la Diagonal",nom:"Nom i cognoms",mail:"Correu o telèfon",perfil:"Vostè és",opts:["Empresa","Autònom","Particular"],msg:"Consulta (opcional)",
       rgpd:"Accepto que tractin les meves dades per respondre la consulta, segons la",rgpdL:"política de privacitat",enviar:"Enviar la consulta",enviado:"Consulta enviada. Li respondrem aviat.",demo:"Formulari de demostració: a la web definitiva la consulta arribarà al correu del despatx.",plan:"temps per planificar",eNom:"Escrigui el seu nom.",eMail:"Deixi'ns un correu o un telèfon per respondre-li.",eRgpd:"Cal acceptar la política de privacitat.",eRev:"Revisi els camps marcats.",
       legal:["Avís legal","Privacitat","Cookies"],cli:"Àrea client",mapa:"Mapa de l'oficina",mapaB:"Veure el mapa",mapaS:"Es carrega des de Google Maps",tancar:"Tancar",
-      compH:"Altres serveis",compP:"També l'acompanyem en la comptabilitat, la feina i l'empresa, perquè no hagi de buscar ningú més: el mateix equip, coordinat amb la seva fiscalitat.",menuF:["Canvi de gestor","Calendari","Altres serveis","Qui som","Contacte"],tema:"Tema de la consulta",altres:"Altres",
+      compH:"Altres serveis",compP:"També l'acompanyem en la comptabilitat, la feina i l'empresa, perquè no hagi de buscar ningú més: el mateix equip, coordinat amb la seva fiscalitat.",menuS:"Serveis",cliC:"Clients",menuF:["Canvi de gestor","Calendari","Altres serveis","Qui som","Contacte"],tema:"Tema de la consulta",altres:"Altres",
       lg:(c,k)=>[["Avís legal",[`Titular: ${c.razonSocial.replace(/\.$/,"")}. NIF: pendent d'incorporar. Domicili: ${k.direccion}, ${k.cp}. Telèfon: ${k.telefono}.`,"Aquesta web informa dels serveis del despatx. Els continguts són orientatius i no substitueixen l'assessorament personalitzat."]],
         ["Privacitat",[`Responsable: ${c.razonSocial.replace(/\.$/,"")}. Finalitat: respondre les consultes que ens envia pel formulari. Base legal: el seu consentiment.`,"Conservem les dades el temps necessari per atendre la consulta i, si esdevé client, el que exigeixi la llei. No les cedim a tercers.","Pot exercir els drets d'accés, rectificació, supressió, oposició i portabilitat adreçant-se al despatx, i reclamar davant l'Agència Espanyola de Protecció de Dades (aepd.es)."]],
         ["Cookies",["Aquesta web no fa servir galetes de seguiment ni de publicitat. Només desa al seu navegador l'idioma que ha triat.","El mapa de Google només es carrega si vostè ho demana. En aquest cas, Google pot instal·lar les seves pròpies galetes."]]],
@@ -349,7 +352,7 @@ const UI = {
       formH:"Envíenos su consulta",lgH:"Textos legales",pausa:"Detener el vídeo",eTel:"El teléfono parece incompleto.",irP:"Pedir cita como",fr2:["Un interlocutor","fijo para cada cliente"],modsH:"Modelos de Hacienda",eMail2:"Revise el correo: parece incompleto.",fr0:"Más de 40",fr1:"cerca de la Diagonal",nom:"Nombre y apellidos",mail:"Correo o teléfono",perfil:"Usted es",opts:["Empresa","Autónomo","Particular"],msg:"Consulta (opcional)",
       rgpd:"Acepto que traten mis datos para responder a la consulta, según la",rgpdL:"política de privacidad",enviar:"Enviar la consulta",enviado:"Consulta enviada. Le responderemos pronto.",demo:"Formulario de demostración: en la web definitiva la consulta llegará al correo del despacho.",plan:"tiempo para planificar",eNom:"Escriba su nombre.",eMail:"Déjenos un correo o un teléfono para responderle.",eRgpd:"Es necesario aceptar la política de privacidad.",eRev:"Revise los campos marcados.",
       legal:["Aviso legal","Privacidad","Cookies"],cli:"Área cliente",mapa:"Mapa de la oficina",mapaB:"Ver el mapa",mapaS:"Se carga desde Google Maps",tancar:"Cerrar",
-      compH:"Otros servicios",compP:"También le acompañamos en la contabilidad, el trabajo y la empresa, para que no tenga que buscar a nadie más: el mismo equipo, coordinado con su fiscalidad.",menuF:["Cambio de gestor","Calendario","Otros servicios","Quiénes somos","Contacto"],tema:"Tema de la consulta",altres:"Otros",
+      compH:"Otros servicios",compP:"También le acompañamos en la contabilidad, el trabajo y la empresa, para que no tenga que buscar a nadie más: el mismo equipo, coordinado con su fiscalidad.",menuS:"Servicios",cliC:"Clientes",menuF:["Cambio de gestor","Calendario","Otros servicios","Quiénes somos","Contacto"],tema:"Tema de la consulta",altres:"Otros",
       lg:(c,k)=>[["Aviso legal",[`Titular: ${c.razonSocial.replace(/\.$/,"")}. NIF: pendiente de incorporar. Domicilio: ${k.direccion}, ${k.cp}. Teléfono: ${k.telefono}.`,"Esta web informa de los servicios del despacho. Los contenidos son orientativos y no sustituyen el asesoramiento personalizado."]],
         ["Privacidad",[`Responsable: ${c.razonSocial.replace(/\.$/,"")}. Finalidad: responder a las consultas que nos envía por el formulario. Base legal: su consentimiento.`,"Conservamos los datos el tiempo necesario para atender la consulta y, si se hace cliente, el que exija la ley. No los cedemos a terceros.","Puede ejercer los derechos de acceso, rectificación, supresión, oposición y portabilidad dirigiéndose al despacho, y reclamar ante la Agencia Española de Protección de Datos (aepd.es)."]],
         ["Cookies",["Esta web no usa cookies de seguimiento ni de publicidad. Solo guarda en su navegador el idioma que ha elegido.","El mapa de Google solo se carga si usted lo pide. En ese caso, Google puede instalar sus propias cookies."]]],
@@ -385,8 +388,8 @@ function render(){
   const vist=new Set(), venc=C.vencimientos.flatMap(v=>[0,1,2].map(a=>{const d=new Date(v.fecha+'T00:00:00');d.setFullYear(d.getFullYear()+a);return {...v,d}})).filter(v=>v.d>=hoy).sort((a,b)=>a.d-b.d).filter(v=>{const k=v.fecha.slice(5)+v.modelos;return vist.has(k)?false:vist.add(k)}).slice(0,4);
   const p0=venc[0], dias=p0?Math.round((p0.d-hoy)/864e5):null;
   const F=C.foco, G=C.google, CB=C.cambio;
-  const ids=F?['fiscal',...(CB?['canvi']:[]),'calendari','serveis','qui-som','contacte']:['serveis','perfils','calendari','qui-som','contacte'];
-  const menu=F?[t(F.menu),...u.menuF.filter((x,i)=>i||CB)]:u.menu;
+  const ids=F?['fiscal',...(CB?['canvi']:[]),'qui-som','contacte']:['serveis','perfils','calendari','qui-som','contacte'];
+  const menu=F?[u.menuS,...(CB?[u.menuF[0]]:[]),u.menuF[3],u.menuF[4]]:u.menu;
   const anos=hoy.getFullYear()-C.desde;
   const ini=n=>n.split(' ').filter(w=>/^[A-ZÀ-Ú]/.test(w)).slice(0,2).map(w=>w[0]).join('');
   const lead=String(t(C.hero.texto)), cut=lead.indexOf('. ');
@@ -414,14 +417,14 @@ function render(){
   </div></section>
 `:'';
   const secAreas=()=>`
-  <section class="s areas-s" id="serveis"><div class="g">
+  <section class="s areas-s" id="serveis" data-m="fiscal"><div class="g">
     <div class="intro"><h2>${F?u.compH:u.areaH}</h2><p>${F?u.compP:u.areaP}</p></div>
     <div>${C.areas.map((a,i)=>`<details ${i===0&&!F?'open':''}><summary><span class="st"><b>${esc(t(a.titulo))}</b>${a.r?`<small>${esc(t(a.r))}</small>`:''}</span><i aria-hidden="true"></i></summary><p>${esc(t(a.texto))}</p></details>`).join('')}</div>
   </div></section>
 `;
   const secBanda=()=>C.banda?`<section class="banda">${vid(md.bandaVideo,md.bandaPoster)}${md.bandaVideo?pausaB():''}<div class="g"><p>${esc(t(C.banda))}</p></div></section>`:'';
   const secCal=()=>`
-  <section class="s" id="calendari"><div class="g">
+  <section class="s" id="calendari" data-m="fiscal"><div class="g">
     <div class="cab"><h2>${u.calH}</h2><p>${u.calP}</p></div>
     <ol class="linea" style="--n:${venc.length}">${venc.map((v,i)=>`<li class="${i===0?'ya':''}"><b>${v.d.getDate()}</b> <span class="m">${u.meses[v.d.getMonth()]} ${v.d.getFullYear()}</span><span class="tx">${esc(t(v.texto))}</span><span class="mod">${u.mod} ${esc(v.modelos)}</span></li>`).join('')}</ol>
     <p class="nota">${u.nota}</p>
@@ -450,11 +453,12 @@ function render(){
   <div style="position:relative">
   <header><div class="g">
     <a class="logo" href="#">${M.simbolo}<span><b>${C.logo?`${esc(C.logo.principal)}<em>${esc(C.logo.secundario)}</em>`:esc(C.nombre)}</b><small>${C.lema?esc(t(C.lema)):u.sub}</small></span></a>
-    <nav class="menu" aria-label="Menú">${menu.map((x,i)=>`<a href="#${ids[i]}">${x}</a>`).join('')}<a class="tel-m" href="tel:${k.telefonoLink}">${u.llamar} ${esc(k.telefono)}</a>${k.intranet?`<a class="cli-m" href="${esc(k.intranet)}">${u.cli}</a>`:''}${idi}</nav>
+    <nav class="menu" aria-label="Menú">${menu.map((x,i)=>`<a href="#${ids[i]}">${x}</a>`).join('')}<a class="tel-m" href="tel:${k.telefonoLink}">${u.llamar} ${esc(k.telefono)}</a>${idi}</nav>
     <div class="util">
       <button class="burger" aria-label="Menú" aria-expanded="false"><i></i></button>
-      ${k.intranet?`<a class="cli" href="${esc(k.intranet)}">${u.cli}</a>`:''}${idi}
-      <a class="tel" href="tel:${k.telefonoLink}">${esc(k.telefono)}</a>
+      ${idi}
+      <a class="tel" href="tel:${k.telefonoLink}" aria-label="${u.llamar} ${esc(k.telefono)}">${tel}</a>
+      ${k.intranet?`<a class="cli" href="${esc(k.intranet)}" aria-label="${u.cli}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="l">${u.cli}</span><span class="c" aria-hidden="true">${u.cliC}</span></a>`:''}
     </div>
   </div></header>
   <section class="hero">
